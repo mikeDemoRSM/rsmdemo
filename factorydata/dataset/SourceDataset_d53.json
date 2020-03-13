@@ -1,0 +1,53 @@
+{
+	"name": "SourceDataset_d53",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CIS Benchmark Directory",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Master Scorecard.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Client"
+			},
+			{
+				"name": "Section"
+			},
+			{
+				"name": "Level"
+			},
+			{
+				"name": "Item Number Txt"
+			},
+			{
+				"name": "Item Number"
+			},
+			{
+				"name": "Question"
+			},
+			{
+				"name": "Response"
+			},
+			{
+				"name": "Rating"
+			},
+			{
+				"name": "Score "
+			},
+			{
+				"name": "Critical"
+			}
+		]
+	}
+}
