@@ -1,0 +1,164 @@
+{
+	"name": "Populate CIS Data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_d53",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/Master Scorecard.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.MasterCIS"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Client",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Client",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Score ",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "Score ",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Critical",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Critical",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Section",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Section",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Level",
+									"type": "Int16"
+								},
+								"sink": {
+									"name": "Level",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Item Number Txt",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Item Number Txt",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Item Number",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "Item Number",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Question",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Question",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Response",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Response",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_d53",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_d53",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
