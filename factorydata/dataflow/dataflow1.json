@@ -1,0 +1,28 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CISLoad",
+						"type": "DatasetReference"
+					},
+					"name": "CISFile"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "tbl_MasterCISLoad",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tClient as string,\n\t\tSection as string,\n\t\tLevel as integer '000',\n\t\t{Item Number Txt} as string,\n\t\t{Item Number} as double '000,000,000.000',\n\t\tQuestion as string,\n\t\tResponse as string,\n\t\tRating as string,\n\t\t{Score } as double '000,000,000.000',\n\t\tCritical as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> CISFile\nCISFile sink(input(\n\t\tClient as string,\n\t\tSection as string,\n\t\tLevel as double,\n\t\t{Item Number Txt} as double,\n\t\t{Item Number} as double,\n\t\tQuestion as string,\n\t\tResponse as string,\n\t\tRating as string,\n\t\t{Score } as double,\n\t\tCritical as string,\n\t\tU_ID as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tdateFormat:'MM-dd-yyyy',\n\ttimestampFormat:'MM/dd/yyyy HH:mm:ss',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}
