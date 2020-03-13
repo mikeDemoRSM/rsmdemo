@@ -5,6 +5,9 @@
 			"referenceName": "CIS Benchmark Directory",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "FileShare"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
