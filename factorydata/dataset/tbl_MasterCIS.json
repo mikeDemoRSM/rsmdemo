@@ -1,0 +1,61 @@
+{
+	"name": "tbl_MasterCIS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MW_SQL_CIS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Client",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Section",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Level",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Item Number Txt",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Item Number",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Question",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Response",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Rating",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Score ",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Critical",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MasterCIS"
+		}
+	}
+}
