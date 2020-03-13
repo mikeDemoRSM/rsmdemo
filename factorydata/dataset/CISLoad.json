@@ -1,0 +1,63 @@
+{
+	"name": "CISLoad",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CIS Benchmark Directory",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Master Scorecard.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Client",
+				"type": "String"
+			},
+			{
+				"name": "Section",
+				"type": "String"
+			},
+			{
+				"name": "Level",
+				"type": "String"
+			},
+			{
+				"name": "Item Number Txt",
+				"type": "String"
+			},
+			{
+				"name": "Item Number",
+				"type": "String"
+			},
+			{
+				"name": "Question",
+				"type": "String"
+			},
+			{
+				"name": "Response",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "Score ",
+				"type": "String"
+			},
+			{
+				"name": "Critical",
+				"type": "String"
+			}
+		]
+	}
+}
